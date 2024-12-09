@@ -41,10 +41,10 @@ Python 3.8._ instalado e as seguintes bibliotecas **em um ambiente virtual**:
 * Para iniciar um  treinamento novo:
 
 ```bash
-python mario_train.py novo new_train None
+python mario_train.py novo Train None
 ```
 
-Onde "Treinamento_Novo" o nome de um diretório não existente onde os checkpoints geracionais e melhores genomas de cada geração serão armazenados, e None indica não existir um arquivo a partir do qual continuar o treino.
+Onde "Train" o nome de um diretório não existente onde os checkpoints geracionais e melhores genomas de cada geração serão armazenados, e None indica não existir um arquivo a partir do qual continuar o treino.
 
 * Para continuar o treinamento de onde ele parou:
 
@@ -52,7 +52,7 @@ Onde "Treinamento_Novo" o nome de um diretório não existente onde os checkpoin
 python mario_train.py continuar Train neat-checkpoint-generation-170.pkl
 ```
 
-Onde "continuar" é o modo de treinamento, "Treinamento" é o nome de um diretório existente, de onde o arquivo de checkpoint deve estar, e "neat-checkpoint-185" é o arquivo de checkpoint.
+Onde "continuar" é o modo de treinamento, "Train" é o nome de um diretório existente, de onde o arquivo de checkpoint deve estar, e "neat-checkpoint-185" é o arquivo de checkpoint.
 
 * Para executar o melhor modelo alcançado pelo grupo:
 
