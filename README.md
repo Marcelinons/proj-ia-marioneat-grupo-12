@@ -14,7 +14,7 @@
 - Wellington Pereira Trindade (11202020121)
 - William Fernandes Dias (11202020043)
 
-## Requisitos para execução
+### Requisitos para execução
 
 Python 3.8._ instalado e as seguintes bibliotecas **em um ambiente virtual**:
 
@@ -31,12 +31,12 @@ Python 3.8._ instalado e as seguintes bibliotecas **em um ambiente virtual**:
 * gym-retro
 
 > Copie a ROM do jogo para uma pasta específica da biblioteca para que seja possível executá-la:
-> 
+>
 > ```bash
 > cp rom.sfc marioenv\Lib\site-packages\retro\data\stable\SuperMarioWorld-Snes
 > ```
 
-### 5. Executando o programa
+### Executando o programa
 
 * Para iniciar um  treinamento novo:
 
@@ -70,15 +70,15 @@ Para realizar o treinamento do agente foi utilizada biblioteca NEAT (acrônimo d
 
 O algoritmo utilizado foi de neuroevolução, com auxílio da biblioteca de python NEAT, com funções nativas da biblioteca que permitem a implementação de uma [rede neural recorrente](https://neat-python.readthedocs.io/en/latest/module_summaries.html#nn-recurrent) a partir do genoma em execução e as configurações definidas. O arquivo é composto de basicamente três funções e uma classe:
 
-* #### função `calculate_genome_fitness`
+* #### método `calculate_genome_fitness`
 
 Função que  calcula e define o valor de fitness com base na distância percorrida em determinada ação tomada pelo agente para cada genoma que recebe como parâmetro (presentes na variável genome). Nesta etapa são feitas também verificações que podem impor condições de reinicialização da execução, como se o agente chegou ao objetivo da fase, se morreu ou se ficou parado durante muito tempo em determinado estado.
 
-* #### função `novoTreinamento`
+* #### método `novoTreinamento`
 
 Caso o usuário deseje iniciar um novo treino a partir do 0, essa função será chamada definindo uma nova população a partir do que está definido em config-feedforward e adiciona as estatísticas referentes a ela. Após todos cálculos com os genomas serem realizados, salva e cria uma nova rede neural com o modelo que obteve maior sucesso naquela execução. A função ainda recebe o nome de uma pasta a ser criada, para salvar os arquivos de checkpoint. Caso o nome recebido já exista, o comando de input entra em loop até receber o nome de uma pasta que não exista para prosseguir com a criação.
 
-* #### função `continuarTreinamento`
+* #### método `continuarTreinamento`
 
 Permite que o usuário escolha continuar o treino do agente a partir de um checkpoint salvo de treinos anteriores. Para isso, precisa do diretório onde os arquivos estão salvos e o último checkpoint disponível (ambos passados como parâmetros). As demais funcionalidades são análogas às presentes na novoTreinamento.
 
@@ -90,22 +90,20 @@ Classe responsável por salvar o andamento do treino executado, disponível [aqu
 
 Este arquivo é o responsável por definir os parâmetros do modelo. A cada vez que o arquivo é executado no modo "iniciar novo treino" ou "continuar treino" as configurações presentes nele são utilizadas para definir parâmetros importantes como a definição do valor máximo de fitness, a função de ativação que será utilizada , taxa de extinção da população, entre outros. Um exemplo simples utilizando uma função XOR que utiliza um arquivo feedforward pode ser consultado [aqui](https://neat-python.readthedocs.io/en/latest/xor_example.html).
 
-
 ## Referências
 
 **1. Vídeo do YouTube:**
 
-- THOMPSON, Lucas. Results of Tutorial on Sonic 2 - EP0 - Open-AI and NEAT Tutorial. YouTube, 3 de agosto de 2018. Disponível em: https://www.youtube.com/watch?v=pClGmU1JEsM&list=PLTWFMbPFsvz3CeozHfeuJIXWAJMkPtAdS&index=1&t=0s&ab_channel=LucasThompson. Acesso em: 5 de dezembro de 2023.
+- THOMPSON, Lucas. Results of Tutorial on Sonic 2 - EP0 - Open-AI and NEAT Tutorial. YouTube, 3 de agosto de 2018. Disponível em: https://www.youtube.com/watch?v=pClGmU1JEsM&list=PLTWFMbPFsvz3CeozHfeuJIXWAJMkPtAdS&index=1&t=0s&ab_channel=LucasThompson. Acesso em: 20 de novembro de 2024.
 
 **2. Repositório GitLab:**
 
-- THOMPSON, Lucas. Sonic Bot in OpenAI and NEAT. GitLab, 2021. Disponível em: https://gitlab.com/lucasrthompson/Sonic-Bot-In-OpenAI-and-NEAT. Acesso em: 5 de dezembro de 2023.
+- THOMPSON, Lucas. Sonic Bot in OpenAI and NEAT. GitLab, 2021. Disponível em: https://gitlab.com/lucasrthompson/Sonic-Bot-In-OpenAI-and-NEAT. Acesso em: 20 de novembro de 2024.
 
 **3. Código-fonte no GitHub:**
 
-- CODERECLAIMERS. neat-python - checkpoint.py. GitHub, 2022. Disponível em: https://github.com/CodeReclaimers/neat-python/blob/master/neat/checkpoint.py. Acesso em: 5 de dezembro de 2023.
+- CODERECLAIMERS. neat-python - checkpoint.py. GitHub, 2022. Disponível em: https://github.com/CodeReclaimers/neat-python/blob/master/neat/checkpoint.py. Acesso em: 21 de novembro de 2024.
 
 **4. Repositório no GitHub:**
 
-- UFABC-BCC. Super Mario World - pbacellar. GitHub, 20 de agosto de 2021. Disponível em: https://github.com/ufabc-bcc/super-mario-world-pbacellar. Acesso em: 5 de dezembro de 2023.
-
+- UFABC-BCC. Super Mario World - pbacellar. GitHub, 20 de agosto de 2021. Disponível em: https://github.com/ufabc-bcc/super-mario-world-pbacellar. Acesso em: 21 de novembro de 2024.
